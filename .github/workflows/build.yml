@@ -1,0 +1,28 @@
+---
+name: Build STL files
+on:
+  - pull_request
+  - push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Install dependencies
+        run: |
+          sudo add-apt-repository ppa:openscad/releases
+          sudo apt-get update
+          sudo apt-get install openscad freebsd-buildutils xvfb
+
+      - name: Build STL files
+
+        # XXX use xvfb-run here because OpenSCAD cannot export images
+        # without X server.
+        # https://github.com/openscad/openscad/issues/1798
+        run: |
+          xvfb-run --auto-servernum fmake FLAT_TEXT_1="ESP32" FLAT_TEXT_2="''" FLAT_TEXT_FLAGS="-D flat_text_size=10"
+          ls *.stl *.png
