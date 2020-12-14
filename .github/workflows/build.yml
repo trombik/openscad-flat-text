@@ -25,5 +25,15 @@ jobs:
         # https://github.com/openscad/openscad/issues/1798
         run: |
           xvfb-run --auto-servernum fmake FLAT_TEXT_1="ESP32" FLAT_TEXT_2="''" FLAT_TEXT_FLAGS="-D flat_text_size=10"
-          xvfb-run --auto-servernum openscad -o holder.stl holder.scad
           ls *.stl *.png
+          for F in flat_text.stl flat_text.png flat_text_holder.stl flat_text_holder.png; do
+            echo "testing file: ${F}"
+            if [ ! -f ${F} ]; then
+              echo "${F} is not a file"
+              exit 1
+            fi
+            if file ${F} | grep "empty"; then
+              echo "${F} is empty"
+              exit 1
+            fi
+          done
