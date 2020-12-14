@@ -3,6 +3,7 @@
 ## Examples
 
 ![Two lines](assets/two_lines.png)
+![Single line](assets/single_line.png)
 
 ## Usage
 
