@@ -1,5 +1,9 @@
 # `openscad-flat-text`
 
+## Examples
+
+![Two lines](assets/two_lines.png)
+
 ## Usage
 
 ```console
