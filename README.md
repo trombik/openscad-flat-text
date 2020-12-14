@@ -57,6 +57,6 @@ The bundled Bangers font is recommended (bold and clear). Change
 
 ## License
 
-MIT. See [LICENSE](LICENSE) for details. The bundled Bangers font is licensed
+ISC. See [LICENSE](LICENSE) for details. The bundled Bangers font is licensed
 under Open Font License version 1.1. See [OFL.txt](fonts/Bangers/OFL.txt) for
 details.
