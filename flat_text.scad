@@ -37,9 +37,14 @@ module __flat_text_second()
     __flat_text_base(text = flat_text_2, font = flat_text_font, size = flat_text_size);
 }
 
-__flat_text_first();
-if (flat_text_2) {
-    translate([0, 0 - flat_text_size * 1.2, 0]) {
-        __flat_text_second();
+module flat_text()
+{
+    __flat_text_first();
+    if (flat_text_2) {
+        translate([0, 0 - flat_text_size * 1.2, 0]) {
+            __flat_text_second();
+        }
     }
 }
+
+flat_text();
